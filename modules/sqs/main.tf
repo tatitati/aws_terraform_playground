@@ -1,6 +1,4 @@
-provider "aws" {
-  region     = "eu-central-1"
-}
+
 
 # resource "aws_sqs_queue" "terraform_queue_deadletter" {  # Dead letter queue is another normal queue as you can see
 #   name = "terraform-example-queue-deadletter"
