@@ -2,7 +2,7 @@ pipeline {
    agent any
 
     parameters {
-        tring(name: 'city', defaultValue: '', description: 'born in....?')
+        string(name: 'city', defaultValue: '', description: 'born in....?')
         choice(name: 'color', choices: ['red', 'green', 'blue'], description: '') 
     }
 
