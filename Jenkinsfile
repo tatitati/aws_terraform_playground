@@ -2,7 +2,7 @@ pipeline {
    agent any
 
     parameters {
-        persistentString(name: 'city', defaultValue: '', description: 'born in....?')
+        persistentString(name: 'city', defaultValue: '', description: 'born where....?')
         persistentChoice(name: 'color', choices: ['red', 'green', 'blue'], description: '') 
     }
 
