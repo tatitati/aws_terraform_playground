@@ -1,9 +1,9 @@
 pipeline {
    agent any
-   
+
     parameters {
-        string(name: 'city', defaultValue: '', description: 'born in....?')
-        choice(name: 'color', choices: ['red', 'green', 'blue'], description: '') 
+        persistentString(name: 'city', defaultValue: '', description: 'born in....?')
+        persistentChoice(name: 'color', choices: ['red', 'green', 'blue'], description: '') 
     }
 
    stages {
