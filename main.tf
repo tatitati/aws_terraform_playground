@@ -6,3 +6,7 @@ provider "aws" {
 # module "sqs" {
 #   source = "./modules/sqs"
 # }
+
+module "ec2" {
+  source = "./modules/ec2"
+}
