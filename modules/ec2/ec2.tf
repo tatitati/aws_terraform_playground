@@ -58,8 +58,8 @@ resource "aws_iam_policy" "policy" {
     {
       "Action": [
         "s3:*",
-        "ecs:*",
-        "ecr:*"
+        "ecr:*",
+
       ],
       "Effect": "Allow",
       "Resource": "*"
