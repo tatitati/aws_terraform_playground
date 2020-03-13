@@ -28,6 +28,7 @@ resource "aws_security_group" "ssh_access_terraform" {
 
 # Attaches a Managed IAM Policy to an IAM role to read S3
 #--------------------------------------------------------
+# *) TRUSTED POLICY
 resource "aws_iam_role" "role" {
   name                = "terraform-role"
   assume_role_policy  = <<EOF
@@ -83,7 +84,7 @@ resource "aws_instance" "my-test-instance" {
   instance_type         = "t2.micro"
   key_name              = "new_ec2_keypar"
   user_data             = data.template_file.init.rendered
-  security_groups       = ["${aws_security_group.ssh_access_terraform.name}"]
+  security_groups       = [aws_security_group.ssh_access_terraform.name]
   iam_instance_profile  = aws_iam_instance_profile.test_profile.name
 
   tags = {
