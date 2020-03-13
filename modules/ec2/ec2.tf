@@ -28,7 +28,7 @@ resource "aws_security_group" "ssh_access_terraform" {
 
 # Attaches a Managed IAM Policy to an IAM role to read S3
 #--------------------------------------------------------
-# *) TRUSTED POLICY
+# *) trusted policy (who can assume this role)
 resource "aws_iam_role" "role" {
   name                = "terraform-role"
   assume_role_policy  = <<EOF
@@ -47,7 +47,7 @@ resource "aws_iam_role" "role" {
 }
 EOF
 }
-
+# Policies associated to the role (what can be done with this role)
 resource "aws_iam_policy" "policy" {
   name          = "test-policy"
   description   = "A test policy"
