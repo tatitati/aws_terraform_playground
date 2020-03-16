@@ -78,10 +78,20 @@ resource "aws_iam_instance_profile" "test_profile" {
   role = aws_iam_role.role.name
 }
 
+data "aws_ami" "my_data_amis" {
+  most_recent = true
+  owners      = ["amazon"]
+  filter {
+      name   = "name"
+      values = ["amzn2-ami-hvm*"]
+    }
+}
+
 # MAIN
 # ----
 resource "aws_instance" "my-test-instance" {
-  ami                   = "ami-0ec1ba09723e5bfac"
+  # ami                   = "ami-0ec1ba09723e5bfac"
+  ami                   = data.aws_ami.my_data_amis.id
   instance_type         = "t2.micro"
   key_name              = "new_ec2_keypar"
   user_data             = data.template_file.init.rendered
