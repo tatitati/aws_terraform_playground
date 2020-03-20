@@ -1,0 +1,23 @@
+[
+  {
+    "name": "python__2_7",
+    "image": "python:2.7",
+    "cpu": 2,
+    "memory": 512,
+    "essential": true
+  },
+  {
+    "name": "python__3",
+    "image": "python:3",
+    "cpu": 2,
+    "memory": 256,
+    "essential": true
+  },
+  {
+    "name": "java__8",
+    "image": "java",
+    "cpu": 2,
+    "memory": 256,
+    "essential": true
+  }
+]

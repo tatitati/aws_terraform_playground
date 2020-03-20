@@ -28,7 +28,7 @@ resource "aws_security_group" "ssh_access_terraform" {
 
 # Attaches a Managed IAM Policy to an IAM role to read S3
 #--------------------------------------------------------
-# *) trusted policy (who can assume this role)
+#       trusted policy (who can assume this role)
 resource "aws_iam_role" "role" {
   name                = "terraform-role"
   assume_role_policy  = <<EOF
@@ -36,31 +36,32 @@ resource "aws_iam_role" "role" {
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Effect": "Allow",
       "Action": "sts:AssumeRole",
       "Principal": {
         "Service": "ec2.amazonaws.com"
       },
-      "Effect": "Allow",
       "Sid": ""
     }
   ]
 }
 EOF
 }
-# Policies associated to the role (what can be done with this role)
-resource "aws_iam_policy" "policy" {
+
+#       policies attached to role
+resource "aws_iam_role_policy" "policy" {
   name          = "test-policy"
-  description   = "A test policy"
-  policy        = <<EOF
+  role = aws_iam_role.role.id
+  policy=<<EOF
 {
   "Version": "2012-10-17",
   "Statement": [
     {
+      "Effect": "Allow",
       "Action": [
         "s3:*",
         "ecr:*"
       ],
-      "Effect": "Allow",
       "Resource": "*"
     }
   ]
@@ -68,11 +69,7 @@ resource "aws_iam_policy" "policy" {
 EOF
 }
 
-resource "aws_iam_role_policy_attachment" "test-attach" {
-  role       = aws_iam_role.role.name
-  policy_arn = aws_iam_policy.policy.arn
-}
-
+# Policies associated to the role (what can be done with this role)
 resource "aws_iam_instance_profile" "test_profile" {
   name = "test_profile"
   role = aws_iam_role.role.name
