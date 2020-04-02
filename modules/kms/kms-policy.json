@@ -73,6 +73,19 @@
                     "kms:GrantIsForAWSResource": "true"
                 }
             }
+        },
+        {
+            "Sid": "THIS POLICY IS NEW AND IT SHOULD BE APPENDED",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::338456148177:role/ec2canlists3",
+                    "arn:aws:iam::338456148177:user/myuser"
+                ]
+            },
+            "Action": [
+                "kms:CreateGrant"
+            ]
         }
     ]
 }
