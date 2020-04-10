@@ -1,7 +1,7 @@
 [
   {
-    "name": "python__2_7",
-    "image": "python:2.7",
+    "name": "centos",
+    "image": "centos",
     "cpu": 2,
     "memory": 200,
     "essential": true
