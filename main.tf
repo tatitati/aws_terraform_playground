@@ -11,8 +11,12 @@ provider "aws" {
 #   source = "./modules/ec2"
 # }
 
-module "ecs" {
-  source = "./modules/ecs_task_definition_1container"
+# module "ecs" {
+#   source = "./modules/ecs_task_definition_1container"
+# }
+
+module "snowflake" {
+  source = "./modules/snowflake"
 }
 
 # Import this with
