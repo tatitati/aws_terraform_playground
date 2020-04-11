@@ -1,22 +1,3 @@
-# {
-#   "Version": "2012-10-17",
-#   "Statement": [
-#     {
-#       "Effect": "Allow",
-#       "Principal": {
-#         "AWS": "arn:aws:iam::574791053325:user/czzi-s-iess5178"
-#       },
-#       "Action": "sts:AssumeRole",
-#       "Condition": {
-#         "StringEquals": {
-#           "sts:ExternalId": "RP52309_SFCRole=4_O6UkAF8DlI9vyFfnTtaGrkLP3lc="
-#         }
-#       }
-#     }
-#   ]
-# }
-
-
 data "aws_iam_policy_document" "trust_relationship" {
   statement {
     actions = ["sts:AssumeRole"]
@@ -35,26 +16,6 @@ data "aws_iam_policy_document" "trust_relationship" {
 }
 
 
-#     "Version": "2012-10-17",
-#     "Statement": [
-#         {
-#             "Effect": "Allow",
-#             "Action": [
-#                 "s3:PutObject",
-#                 "s3:GetObject",
-#                 "s3:GetObjectVersion",
-#                 "s3:DeleteObject",
-#                 "s3:DeleteObjectVersion"
-#             ],
-#             "Resource": "arn:aws:s3:::mybucketmybucketmybucketmybucket/myfolder/*"
-#         },
-#         {
-#             "Effect": "Allow",
-#             "Action": "s3:ListBucket",
-#             "Resource": "arn:aws:s3:::mybucketmybucketmybucketmybucket"
-#         }
-#     ]
-# }
 
 data "aws_iam_policy_document" "policy_permissions" {
   statement {
