@@ -17,6 +17,9 @@ provider "aws" {
 
 module "snowflake" {
   source = "./modules/snowflake"
+
+  trust_relationship__trusted_entities = "arn:aws:iam::YYYYYYY:user/XXXXX"
+  trust_relationship__conditions__externalid = "RP52309_SFCRole=BBBBBBBBBBBBB"
 }
 
 # Import this with

@@ -1,9 +1,0 @@
-[
-  {
-    "name": "centos",
-    "image": "centos",
-    "cpu": 2,
-    "memory": 200,
-    "essential": true
-  }
-]

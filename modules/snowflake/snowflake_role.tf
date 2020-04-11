@@ -3,13 +3,13 @@ data "aws_iam_policy_document" "trust_relationship" {
     actions = ["sts:AssumeRole"]
     principals {
       type = "AWS"
-      identifiers = ["arn:aws:iam::574791053325:user/czzi-s-iess5178"]
+      identifiers = [var.trust_relationship__trusted_entities]
     }
     condition {
       test     = "StringEquals"
       variable = "sts:ExternalId"
       values = [
-        "RP52309_SFCRole=4_O6UkAF8DlI9vyFfnTtaGrkLP3lc="
+        var.trust_relationship__conditions__externalid
       ]
     }
   }
