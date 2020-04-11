@@ -30,7 +30,7 @@ data "aws_iam_policy_document" "trust_relationship" {
       values = [
         "RP52309_SFCRole=4_O6UkAF8DlI9vyFfnTtaGrkLP3lc="
       ]
-    }    
+    }
   }
 }
 
