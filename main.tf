@@ -15,11 +15,22 @@ provider "aws" {
 #   source = "./modules/ecs_task_definition_1container"
 # }
 
-module "snowflake" {
+module "snowflake_mynewsuperbucket" {
   source = "./modules/snowflake"
+  namerole    = "snowflake_mynewsuperbucket_role"
+  namepolicy  = "snowflake_mynewsuperbucket_policy"
+  arn_bucket  = "arn:aws:s3:::mynewsuperbucket"
+  trust_relationship__trusted_entities = "arn:aws:iam::574791053325:user/czzi-s-iess5178"
+  trust_relationship__conditions__externalid = "XXXXXXXXX"
+}
 
-  trust_relationship__trusted_entities = "arn:aws:iam::YYYYYYY:user/XXXXX"
-  trust_relationship__conditions__externalid = "RP52309_SFCRole=BBBBBBBBBBBBB"
+module "snowflake_thisismybucketagain" {
+  source      = "./modules/snowflake"
+  namerole    = "snowflake_thisismybucketagain_role"
+  namepolicy  = "snowflake_thisismybucketagain_policy"
+  arn_bucket  = "arn:aws:s3:::thisismybucketagain"
+  trust_relationship__trusted_entities = "arn:aws:iam::574791053325:user/czzi-s-iess5178"
+  trust_relationship__conditions__externalid = "YYYYYYYYY"
 }
 
 # Import this with
