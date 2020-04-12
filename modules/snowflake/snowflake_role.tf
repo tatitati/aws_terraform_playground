@@ -21,6 +21,17 @@ data "aws_iam_policy_document" "policy_permissions" {
   statement {
     effect = "Allow"
     actions = [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:GetObjectVersion",
+        "s3:DeleteObject",
+        "s3:DeleteObjectVersion"
+    ]
+    resources = ["${var.arn_bucket}/*"]
+  }
+  statement {
+    effect = "Allow"
+    actions = [
         "s3:ListBucket"
     ]
     resources = [var.arn_bucket]
