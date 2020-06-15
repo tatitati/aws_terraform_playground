@@ -87,6 +87,14 @@ provider "aws" {
 #   policy = "${file("modules/kms/kms-policy.json")}"
 # }
 
-module "iamrole_to_be_assumed_by_user" {
-  source = "./modules/iamrole"
+# module "iamrole_to_be_assumed_by_user" {
+#   source = "./modules/iamrole"
+# }
+
+# module "cloudfront_s3" {
+#     source = "./modules/cloudfront_s3"
+# }
+
+module "cloudfront" {
+    source = "./modules/cloudfront"
 }
