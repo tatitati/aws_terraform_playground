@@ -137,14 +137,8 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
 }
 
 # Upload file to s3
-data "archive_file" "source" {
-  type        = "zip"
-  source_dir  = "./modules/cloudfront/myfiles"
-  output_path = "./sp-2.14.0.js"
-}
-
 resource "aws_s3_bucket_object" "file_upload" {
   bucket = "${aws_s3_bucket.b.id}"
   key    = "sp-2.14.0.js"
-  source = "${data.archive_file.source.output_path}" # its mean it depended on zip
+  source = "./modules/cloudfront/myfiles/sp-2.14.0.js"
 }
