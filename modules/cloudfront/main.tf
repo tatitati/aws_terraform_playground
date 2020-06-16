@@ -25,7 +25,6 @@ resource "aws_s3_bucket_policy" "example" {
 
 
 # CLOUDFRONT
-
 locals {
   s3_origin_id = "s3-mycloudfrontbucketexperiment"
 }

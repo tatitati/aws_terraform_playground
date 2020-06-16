@@ -98,3 +98,7 @@ provider "aws" {
 module "cloudfront" {
     source = "./modules/cloudfront"
 }
+
+output "cloudfront_domain_name" {
+  value = module.cloudfront.domain_name
+}
